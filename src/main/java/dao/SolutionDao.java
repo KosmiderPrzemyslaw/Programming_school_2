@@ -33,6 +33,7 @@ public class SolutionDao {
         }
         return null;
     }
+
     public List<Solution> findAllSolutionsByUserId(int userId) {
         try {
             List<Solution> solutions = new ArrayList<>();
@@ -46,6 +47,7 @@ public class SolutionDao {
         }
         return null;
     }
+
     public Solution read(int solutionId) {
         try {
             Connection connection = DbUtil.getConnection();
@@ -136,6 +138,20 @@ public class SolutionDao {
             List<Solution> solutionList = new ArrayList<>();
             return getSolutions(preparedStatement, solutionList);
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Solution> findRecent(int limit) {
+        try {
+            Connection connection = DbUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Programming_school.solution ORDER BY Programming_school.solution.created LIMIT ?");
+            preparedStatement.setInt(1, limit);
+            preparedStatement.executeQuery();
+            List<Solution> solutionList = new ArrayList<>();
+            return getSolutions(preparedStatement, solutionList);
         } catch (SQLException e) {
             e.printStackTrace();
         }

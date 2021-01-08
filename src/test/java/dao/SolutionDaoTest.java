@@ -37,4 +37,8 @@ public class SolutionDaoTest {
     @Test
     public void findAllByExerciseId() {
     }
+
+    @Test
+    public void findRecent() {
+    }
 }
