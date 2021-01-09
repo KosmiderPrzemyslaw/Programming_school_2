@@ -1,6 +1,6 @@
 package dao;
 
-import models.Solution;
+import model.Solution;
 import utils.DbUtil;
 
 import java.sql.*;

@@ -1,7 +1,7 @@
 package dao;
 
 
-import models.User;
+import model.User;
 import utils.DbUtil;
 
 import java.sql.*;

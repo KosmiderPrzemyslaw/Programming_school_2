@@ -1,9 +1,11 @@
 package controller;
 
+import dao.ExerciseDao;
 import dao.SolutionDao;
 import dao.UserDao;
-import models.Solution;
-import models.User;
+import model.Exercise;
+import model.Solution;
+import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,20 +23,30 @@ public class homePage extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Solution solution = new Solution();
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
         SolutionDao solutionDao = new SolutionDao();
         List<Solution> recentSolutions = solutionDao.findRecent(5);
+
         UserDao userDao = new UserDao();
         List<User> userList = new ArrayList<>();
-        for (Solution s: recentSolutions
-             ) {
+
+        ExerciseDao exerciseDao = new ExerciseDao();
+        List<Exercise> exerciseList = new ArrayList<>();
+        for (Solution s : recentSolutions
+        ) {
             int userId = s.getUserId();
             User userById = userDao.findUserById(userId);
             userList.add(userById);
+
+            int exerciseId = s.getExerciseId();
+            Exercise exercise = exerciseDao.findById(exerciseId);
+            exerciseList.add(exercise);
         }
 
         request.setAttribute("users", userList);
         request.setAttribute("solutions", recentSolutions);
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+        request.setAttribute("exercises", exerciseList);
+        getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 }

@@ -1,7 +1,7 @@
 package dao;
 
 
-import models.Exercise;
+import model.Exercise;
 import utils.DbUtil;
 
 import java.sql.Connection;

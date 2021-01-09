@@ -1,4 +1,4 @@
-package models;
+package model;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -50,7 +50,7 @@ public class Solution {
 
 
     public Timestamp getCreated() {
-        return Timestamp.valueOf(LocalDateTime.now());
+        return created;
     }
 
     public void setCreated(Timestamp created) {

@@ -1,4 +1,4 @@
-package models;
+package model;
 
 public class Group {
     private int id;
