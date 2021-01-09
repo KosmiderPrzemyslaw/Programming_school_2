@@ -1,8 +1,8 @@
-package dao;
+package pl.dao;
 
 
-import model.Group;
-import utils.DbUtil;
+import pl.model.Group;
+import pl.utils.DbUtil;
 
 import java.sql.*;
 import java.util.ArrayList;

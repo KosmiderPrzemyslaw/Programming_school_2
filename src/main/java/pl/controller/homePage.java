@@ -1,11 +1,11 @@
-package controller;
+package pl.controller;
 
-import dao.ExerciseDao;
-import dao.SolutionDao;
-import dao.UserDao;
-import model.Exercise;
-import model.Solution;
-import model.User;
+import pl.dao.ExerciseDao;
+import pl.dao.SolutionDao;
+import pl.dao.UserDao;
+import pl.model.Exercise;
+import pl.model.Solution;
+import pl.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,9 +18,6 @@ import java.util.List;
 
 @WebServlet("/")
 public class homePage extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");

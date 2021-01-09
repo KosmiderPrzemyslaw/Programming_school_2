@@ -1,10 +1,8 @@
-package dao;
+package pl.dao;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class ExerciseDaoTest {
+public class UserDaoTest {
 
     @Test
     public void create() {
@@ -27,10 +25,10 @@ public class ExerciseDaoTest {
     }
 
     @Test
-    public void findById() {
+    public void findAllByGroupId() {
     }
 
     @Test
-    public void findAllResolved() {
+    public void findUserById() {
     }
 }

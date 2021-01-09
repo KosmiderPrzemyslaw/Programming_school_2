@@ -1,4 +1,4 @@
-package model;
+package pl.model;
 
 public class Exercise {
     private int id;

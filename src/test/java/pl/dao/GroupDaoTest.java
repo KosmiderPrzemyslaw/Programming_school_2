@@ -1,8 +1,6 @@
-package dao;
+package pl.dao;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class GroupDaoTest {
 

@@ -1,7 +1,7 @@
-package dao;
+package pl.dao;
 
-import model.Solution;
-import utils.DbUtil;
+import pl.model.Solution;
+import pl.utils.DbUtil;
 
 import java.sql.*;
 import java.time.LocalDateTime;

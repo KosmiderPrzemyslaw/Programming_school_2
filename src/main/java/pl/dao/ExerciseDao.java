@@ -1,8 +1,8 @@
-package dao;
+package pl.dao;
 
 
-import model.Exercise;
-import utils.DbUtil;
+import pl.model.Exercise;
+import pl.utils.DbUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
