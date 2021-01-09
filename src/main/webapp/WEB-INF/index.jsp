@@ -11,9 +11,10 @@
 <html>
 <head>
     <title>Programming school Home Page</title>
-    <link rel="stylesheet" href="<c:url value="/css/style.css"/>" type="text/css">
+
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <table>
     <tr>
         <td>

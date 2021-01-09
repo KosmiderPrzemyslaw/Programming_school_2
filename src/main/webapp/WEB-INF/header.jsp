@@ -9,9 +9,12 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
 </head>
 <body>
-<a href="index.jsp">Main page</a>
+
+
+<a href="${pageContext.request.contextPath}/WEB-INF/index.jsp">Main page</a>
 <a href="group.jsp">Group</a>
 <a href="adminPanel.jsp">Admin panel</a>
 </body>
