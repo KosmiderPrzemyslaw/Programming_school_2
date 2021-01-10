@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +42,18 @@ public class homePage extends HttpServlet {
             exerciseList.add(exercise);
         }
 
+        HttpSession session = request.getSession();
+        session.setAttribute("solutions", recentSolutions);
+
+        HttpSession session1 = request.getSession();
+        session1.setAttribute("exercises", exerciseList);
+
+        HttpSession session2 = request.getSession();
+        session2.setAttribute("users", userList);
+
         request.setAttribute("users", userList);
         request.setAttribute("solutions", recentSolutions);
         request.setAttribute("exercises", exerciseList);
-        getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/pages/index.jsp").forward(request, response);
     }
 }

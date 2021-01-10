@@ -8,7 +8,7 @@
               driverClassName="com.mysql.jdbc.Driver"
               connectionProperties="useUnicode=yes;characterEncoding=utf8;"
               url="jdbc:mysql://localhost:3306/Programming_school?useSSL=false"
-              maxTotal="100"
+              maxTotal="1000"
               maxIdle="30"
-              maxWaitMillis="10000" />
+              maxWaitMillis="100000" />
 </Context>
