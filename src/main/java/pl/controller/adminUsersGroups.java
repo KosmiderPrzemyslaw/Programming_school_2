@@ -8,21 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/allGroups")
-public class allGroups extends HttpServlet {
+@WebServlet("/adminUsersGroups")
+public class adminUsersGroups extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GroupDao groupDao = new GroupDao();
-        List<Group> allGroups = groupDao.findAll();
-        request.setAttribute("allGroups", allGroups);
+        List<Group> groupList = groupDao.findAll();
 
-        getServletContext().getRequestDispatcher("/pages/allGroups.jsp").forward(request, response);
+        request.setAttribute("groupList", groupList);
+
+        getServletContext().getRequestDispatcher("/pages/adminUsersGroups.jsp").forward(request,response);
     }
 }

@@ -11,6 +11,7 @@
 <head>
     <title>Title</title>
     <jsp:include page="../header.jsp"/>
+    <a href="${pageContext.request.contextPath}/allGroups">Back</a>
 </head>
 <h2><c:out value="${user.getUserName()}"/> user details: </h2>
 <p>Name: ${user.getUserName()}</p>

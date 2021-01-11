@@ -12,7 +12,9 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"/>
-<br>
-Admin panel
+<h2>Admin panel</h2>
+<p><a href="${pageContext.request.contextPath}/adminUsersGroups">Users group</a></p>
+<p><a href="${pageContext.request.contextPath}/adminExercises">Exercises</a></p>
+<p><a href="${pageContext.request.contextPath}/adminUsers">Users</a></p>
 </body>
 </html>
