@@ -1,5 +1,7 @@
 package pl.model;
 
+import pl.dao.ExerciseDao;
+
 import java.sql.Timestamp;
 
 public class Solution {
@@ -66,6 +68,12 @@ public class Solution {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getExerciseTitle(int id) {
+        ExerciseDao exerciseDao = new ExerciseDao();
+        Exercise exercise = exerciseDao.findById(id);
+        return exercise.getTitle();
     }
 
     public void setDescription(String description) {

@@ -20,7 +20,7 @@
 </head>
 <body>
 <div><a href="${pageContext.request.contextPath}/pages/index.jsp">Main page</a>
-<a href="${pageContext.request.contextPath}/pages/group.jsp">Group</a>
+<a href="${pageContext.request.contextPath}/allGroups">Group</a>
 <a href="${pageContext.request.contextPath}/pages/adminPanel.jsp">Admin panel</a>
 </div>
 </body>

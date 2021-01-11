@@ -3,29 +3,31 @@
   Created by IntelliJ IDEA.
   User: przemysaw
   Date: 11.01.21
-  Time: 20:07
+  Time: 20:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>All users from group</title>
     <jsp:include page="../header.jsp"/>
 </head>
 <body>
-<h2>Group list</h2>
+<h2><c:out value="${group.getName()}"/> group users: </h2>
 <table>
     <tr>
-        <th style="background: darkcyan" scope="col">Group name</th>
+        <th style="background: darkcyan" scope="col">Name</th>
         <th style="background: darkcyan" scope="col">Actions</th>
     </tr>
-
-    <c:forEach items="${allGroups}" var="group">
+    <c:forEach items="${allUsers}" var="user">
         <tr>
-            <td>${group.getName()}</td>
-            <td><a href="${pageContext.request.contextPath}/allUsers?groupId=${group.getId()}" >Users</a></td>
+            <td>${user.getUserName()}</td>
+            <td><a href="${pageContext.request.contextPath}/userDetails?userId=${user.getId()}">Details</a></td>
         </tr>
     </c:forEach>
+    <tr>
+
+    </tr>
 </table>
 </body>
 <jsp:include page="footer.jsp"/>
