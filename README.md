@@ -1,1 +1,1 @@
-Development of Programming_school application using Java Server Pager and Servlets technology.
+Development of Programming_school application using Java Server Pages and Servlets technology. This application provide access to exercise solutions stored in database and resolved by students. Students are divded to groups depends on their skills. Students passwords are safety stored in database - use JB crypt to encrypt the password. You can manage application by administration interface. You can edit, delete or create new exercise and add/delete/update them in database.
