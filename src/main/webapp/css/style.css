@@ -1,6 +1,7 @@
 table {
     width: 400px;
     border: solid black;
+    align-self: center;
 }
 
 td {

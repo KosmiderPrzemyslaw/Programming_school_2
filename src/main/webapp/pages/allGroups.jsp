@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: przemysaw
-  Date: 09.01.21
-  Time: 11:01
+  Date: 11.01.21
+  Time: 20:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<p>This page has been created by KosmiderPrzemyslaw 2021. All rights reserved.</p>
+
 </body>
 </html>

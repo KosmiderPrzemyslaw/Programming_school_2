@@ -11,14 +11,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<html>
+<html lang="en">
 <head>
     <title>Programming school Home Page</title>
     <meta content="text/html" charset="UTF-8">
+    <jsp:include page="../header.jsp"/>
 
 </head>
 <body>
-<jsp:include page="../header.jsp"/>
 <h2>Last submissions</h2>
 <table>
     <tr>
@@ -37,11 +37,11 @@
             <td>${task.getUser().getId()}</td>
             <td>${task.getUser().getUserName()}</td>
             <td>${task.getSolution().getCreated()}</td>
-            <td><a href="">Action</a> </td>
+            <td><a href="${pageContext.request.contextPath}/details?solutionId=${task.getSolution().getId()}">Details</a></td>
         </tr>
     </c:forEach>
 
-
 </table>
 </body>
+<jsp:include page="/pages/footer.jsp"/>
 </html>

@@ -3,6 +3,8 @@ package pl.dao;
 import pl.model.Solution;
 import pl.utils.DbUtil;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,7 +20,13 @@ public class SolutionDao {
                             PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setTimestamp(1, solution.getCreated());
             preparedStatement.setTimestamp(2, solution.getUpdated());
-            preparedStatement.setString(3, solution.getDescription());
+            try {
+                FileReader fileReader = new FileReader(solution.getDescription());
+                preparedStatement.setCharacterStream(3, fileReader);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+//            preparedStatement.setString(3, solution.getDescription());
             preparedStatement.setInt(4, solution.getUserId());
             preparedStatement.setInt(5, solution.getExerciseId());
             preparedStatement.executeUpdate();
@@ -144,6 +152,29 @@ public class SolutionDao {
         return null;
     }
 
+    public Solution findById(int id) {
+        try {
+            Connection connection = DbUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM solution WHERE id = ?");
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Solution solution = new Solution();
+                solution.setId(resultSet.getInt("id"));
+                solution.setUserId(resultSet.getInt("user_id"));
+                solution.setExerciseId(resultSet.getInt("exercise_id"));
+                solution.setCreated(resultSet.getTimestamp("created"));
+                solution.setUpdated(resultSet.getTimestamp("updated"));
+                solution.setDescription(resultSet.getString("description"));
+                return solution;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public List<Solution> findRecent(int limit) {
         try {
             Connection connection = DbUtil.getConnection();
@@ -173,4 +204,5 @@ public class SolutionDao {
         }
         return solutionList;
     }
-}
+
+    }

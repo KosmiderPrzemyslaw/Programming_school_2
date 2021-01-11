@@ -30,39 +30,23 @@ public class homePage extends HttpServlet {
         List<Solution> recentSolutions = solutionDao.findRecent(5);
 
         UserDao userDao = new UserDao();
-        List<User> userList = new ArrayList<>();
-
         ExerciseDao exerciseDao = new ExerciseDao();
-        List<Exercise> exerciseList = new ArrayList<>();
+
         for (Solution s : recentSolutions
         ) {
             int userId = s.getUserId();
             User userById = userDao.findUserById(userId);
-            userList.add(userById);
 
             int exerciseId = s.getExerciseId();
             Exercise exercise = exerciseDao.findById(exerciseId);
-            exerciseList.add(exercise);
 
             ResolvedTasks resolvedTasks = new ResolvedTasks(exercise, userById, s);
             resolvedTasksList.add(resolvedTasks);
         }
 
-        HttpSession session = request.getSession();
-        session.setAttribute("solutions", recentSolutions);
-
-        HttpSession session1 = request.getSession();
-        session1.setAttribute("exercises", exerciseList);
-
-        HttpSession session2 = request.getSession();
-        session2.setAttribute("users", userList);
-
         HttpSession session3 = request.getSession();
         session3.setAttribute("resolvedTasks", resolvedTasksList);
 
-        request.setAttribute("users", userList);
-        request.setAttribute("solutions", recentSolutions);
-        request.setAttribute("exercises", exerciseList);
         getServletContext().getRequestDispatcher("/pages/index.jsp").forward(request, response);
     }
 }
