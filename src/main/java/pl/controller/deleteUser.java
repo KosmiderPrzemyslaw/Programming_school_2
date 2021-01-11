@@ -1,0 +1,25 @@
+package pl.controller;
+
+import pl.dao.UserDao;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/deleteUser")
+public class deleteUser extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        UserDao userDao = new UserDao();
+        userDao.delete(userId);
+
+        response.sendRedirect(request.getContextPath() + "/adminUsers");
+    }
+}

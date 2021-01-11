@@ -28,7 +28,7 @@
         <tr>
             <td>${solution.getExerciseTitle(solution.getExerciseId())}</td>
             <td>${solution.getCreated()}</td>
-            <td><a href="">Details</a></td>
+            <td><a href="${pageContext.request.contextPath}/details?solutionId=${solution.getId()}">Details</a></td>
         </tr>
     </c:forEach>
 </table>
