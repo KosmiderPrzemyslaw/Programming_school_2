@@ -4,6 +4,7 @@ import pl.dao.ExerciseDao;
 import pl.dao.SolutionDao;
 import pl.dao.UserDao;
 import pl.model.Exercise;
+import pl.model.ResolvedTasks;
 import pl.model.Solution;
 import pl.model.User;
 
@@ -23,6 +24,8 @@ public class homePage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
+
+        List<ResolvedTasks> resolvedTasksList = new ArrayList<>();
         SolutionDao solutionDao = new SolutionDao();
         List<Solution> recentSolutions = solutionDao.findRecent(5);
 
@@ -40,6 +43,9 @@ public class homePage extends HttpServlet {
             int exerciseId = s.getExerciseId();
             Exercise exercise = exerciseDao.findById(exerciseId);
             exerciseList.add(exercise);
+
+            ResolvedTasks resolvedTasks = new ResolvedTasks(exercise, userById, s);
+            resolvedTasksList.add(resolvedTasks);
         }
 
         HttpSession session = request.getSession();
@@ -50,6 +56,9 @@ public class homePage extends HttpServlet {
 
         HttpSession session2 = request.getSession();
         session2.setAttribute("users", userList);
+
+        HttpSession session3 = request.getSession();
+        session3.setAttribute("resolvedTasks", resolvedTasksList);
 
         request.setAttribute("users", userList);
         request.setAttribute("solutions", recentSolutions);

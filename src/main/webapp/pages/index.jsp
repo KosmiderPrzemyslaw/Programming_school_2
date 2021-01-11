@@ -22,29 +22,25 @@
 <h2>Last submissions</h2>
 <table>
     <tr>
-        <th scope="col">Exercise title</th>
-        <th scope="col">User</th>
-        <th scope="col">Solutions</th>
+        <th style="background: darkcyan" scope="col">Exercise title</th>
+        <th style="background: darkcyan" scope="col">Exercise id</th>
+        <th style="background: darkcyan" scope="col">User id</th>
+        <th style="background: darkcyan" scope="col">User name</th>
+        <th style="background: darkcyan" scope="col">Solutions</th>
+        <th style="background: darkcyan" scope="col">Actions</th>
     </tr>
 
-    <c:forEach items="${exercises}" var="exercise">
+    <c:forEach items="${resolvedTasks}" var="task">
         <tr>
-            <td>${exercise.getTitle()}</td>
+            <td>${task.getExercise().getTitle()}</td>
+            <td>${task.getExercise().getId()}</td>
+            <td>${task.getUser().getId()}</td>
+            <td>${task.getUser().getUserName()}</td>
+            <td>${task.getSolution().getCreated()}</td>
+            <td><a href="">Action</a> </td>
         </tr>
     </c:forEach>
 
-    <c:forEach items="${users}" var="user">
-        <tr>
-            <td>${user.getUserName()}</td>
-        </tr>
-    </c:forEach>
-
-
-    <c:forEach items="${solutions}" var="solution">
-        <tr>
-            <td>${solution.created}</td>
-        </tr>
-    </c:forEach>
 
 </table>
 </body>

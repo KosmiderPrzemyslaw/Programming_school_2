@@ -5,6 +5,13 @@ public class ResolvedTasks {
     private User user;
     private Solution solution;
 
+
+    public ResolvedTasks(Exercise exercise, User user, Solution solution) {
+        this.exercise = exercise;
+        this.user = user;
+        this.solution = solution;
+    }
+
     public Exercise getExercise() {
         return exercise;
     }
